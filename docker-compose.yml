@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: bossabox
+      POSTGRES_USER: bossabox
+      POSTGRES_DB: vuttr
+    volumes:
+      - "./pgdata:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
+
+  app:
+    image: bossabox-backend
+    depends_on:
+      - db
+    build: .
+    command: yarn dev:server
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+
+
