@@ -1,7 +1,8 @@
-version: "3.7"
+version: "3"
 services:
-  db:
+  bossabox-db:
     image: postgres
+    container_name: bossabox-db
     environment:
       POSTGRES_PASSWORD: bossabox
       POSTGRES_USER: bossabox
@@ -10,16 +11,21 @@ services:
       - "./pgdata:/var/lib/postgresql/data"
     ports:
       - 5432:5432
-
-  app:
-    image: bossabox-backend
-    depends_on:
-      - db
+    networks: 
+      - bossabox-network
+          
+  bossabox-backend:
     build: .
-    command: yarn dev:server
-    ports:
-      - "3000:3000"
+    container_name: bossabox-backend
     volumes:
       - .:/usr/app
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - bossabox-db
+    networks: 
+      - bossabox-network
 
-
+networks: 
+  bossabox-network:
+    driver: bridge
