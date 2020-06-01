@@ -3,6 +3,8 @@
   
 Made by [Igor Gois](https://github.com/igorgoiis)
 
+[Read in Portuguese](https://github.com/igorgoiis/desafio-bossabox-backend/blob/master/README-pt.md)
+
 ## **API developed for the challenge of the BossaBox platform.**
 
  - **The following technologies were used:**
