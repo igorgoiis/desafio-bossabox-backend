@@ -21,6 +21,7 @@ Feito por [Igor Gois](https://github.com/igorgoiis)
 	- TypeORM
 	- API Blueprint
 	- Git
+  - Insomnia
 
 ## Instalação
 
